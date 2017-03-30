@@ -7,7 +7,8 @@ import java.util.Map.Entry;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.util.UriTemplate;
 
 import com.vaadin.navigator.View;
@@ -18,21 +19,19 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @SpringView(name = CoreView.TEMPLATE)
 public class CoreView extends VerticalLayout implements View {
 	SpringNavigator nav;
 
 	private static final long serialVersionUID = 1L;
+	private static final Logger LOGGER = LoggerFactory.getLogger(CoreView.class);
 
 	public static final String TEMPLATE = "apples/{appleId}/cores/{coreId}";
 	public static final UriTemplate URI_TEMPLATE = new UriTemplate(TEMPLATE);
 
 	Label appleId = new Label();
 	Label coreId = new Label();
-	
+
 	public static String getViewName(String appleId, String coreId) {
 		Map<String, String> vars = new HashMap<String, String>();
 		vars.put("appleId", appleId);
@@ -52,18 +51,17 @@ public class CoreView extends VerticalLayout implements View {
 
 	@Override
 	public void enter(ViewChangeEvent event) {
-		log.info("event: '{}'", ReflectionToStringBuilder.toString(event));
 		Map<String, String> map = URI_TEMPLATE.match(event.getViewName());
 		for (Entry<String, String> entry : map.entrySet()) {
-			log.info("key = '{}' value='{}'", entry.getKey(), entry.getValue());
+			LOGGER.info("key = '{}' value='{}'", entry.getKey(), entry.getValue());
 		}
 		appleId.setValue(map.get("appleId"));
 		coreId.setValue(map.get("coreId"));
-		log.info("this: {}", this);
+		LOGGER.info("this: {}", this);
 	}
-	
+
 	@PreDestroy
 	public void destory() {
-		log.info("I die {}", this);
+		LOGGER.info("I die {}", this);
 	}
 }

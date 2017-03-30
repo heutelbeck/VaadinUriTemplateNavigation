@@ -3,7 +3,8 @@ package org.apples.views;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -12,14 +13,13 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @SpringView(name = ApplesView.NAME)
 public class ApplesView extends VerticalLayout implements View {
 
 	private static final long serialVersionUID = 1L;
-	
+	private static final Logger LOGGER = LoggerFactory.getLogger(ApplesView.class);
+
 	public static final String NAME = "apples";
 	
     @PostConstruct
@@ -29,12 +29,11 @@ public class ApplesView extends VerticalLayout implements View {
 
 	@Override
 	public void enter(ViewChangeEvent event) {
-		log.info("event: '{}'", ReflectionToStringBuilder.toString(event));	
-		log.info("this: {}", this);
+		// NOP
 	}
 	
 	@PreDestroy
 	public void destory() {
-		log.info("I die {}",this);
+		LOGGER.info("I die {}",this);
 	}
 }

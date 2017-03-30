@@ -4,6 +4,8 @@ import org.apples.views.AppleView;
 import org.apples.views.ApplesView;
 import org.apples.views.CoreView;
 import org.apples.views.CoresView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
@@ -19,15 +21,13 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @SpringUI
-@Theme("openconjurer")
+@Theme("apples")
 @SpringViewDisplay
 public class ApplesUI extends UI implements ViewDisplay {
 
 	private static final long serialVersionUID = 1L;
+	private static final Logger LOGGER = LoggerFactory.getLogger(ApplesUI.class);
 
 	private Panel springViewDisplay;
 
@@ -43,7 +43,8 @@ public class ApplesUI extends UI implements ViewDisplay {
 		navigationBar.addComponent(createNavigationButton("List all apples", ApplesView.NAME));
 		navigationBar.addComponent(createNavigationButton("Show one apple", AppleView.getViewName("12345")));
 		navigationBar.addComponent(createNavigationButton("List cores of apple", CoresView.getViewName("9874")));
-		navigationBar.addComponent(createNavigationButton("Show one core of apple", CoreView.getViewName("d321", "c5762")));
+		navigationBar
+				.addComponent(createNavigationButton("Show one core of apple", CoreView.getViewName("d321", "c5762")));
 
 		root.addComponent(navigationBar);
 
@@ -55,7 +56,7 @@ public class ApplesUI extends UI implements ViewDisplay {
 	}
 
 	private Button createNavigationButton(String caption, final String viewName) {
-		log.info("{} -> {}", caption,viewName);
+		LOGGER.info("{} -> {}", caption, viewName);
 		Button button = new Button(caption);
 		button.addStyleName(ValoTheme.BUTTON_SMALL);
 		button.addClickListener(event -> getUI().getNavigator().navigateTo(viewName));
