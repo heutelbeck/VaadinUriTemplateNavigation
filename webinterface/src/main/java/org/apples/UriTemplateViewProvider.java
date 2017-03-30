@@ -21,11 +21,10 @@ public class UriTemplateViewProvider extends SpringViewProvider {
 	private static final long serialVersionUID = -2310440004073323751L;
 
 	static class ViewInfoComparator implements Comparator<ViewInfo> {
+		private ViewNameComparator comp = new ViewNameComparator();
 		@Override
 		public int compare(ViewInfo o1, ViewInfo o2) {
-			int numOfSegments1 = o1.getViewName().split("/").length;
-			int numOfSegments2 = o2.getViewName().split("/").length;
-			return Integer.signum(numOfSegments2 - numOfSegments1);
+			return comp.compare(o1.getViewName(), o2.getViewName());
 		}
 	}
 
@@ -45,13 +44,6 @@ public class UriTemplateViewProvider extends SpringViewProvider {
 
 	@Override
 	protected String getViewName(String viewAndParameters, List<ViewInfo> views) {
-
-//		// check all the vies and show if they match .. just testing delete this later
-//		for (ViewInfo view : views) {
-//			if (!view.getViewName().isEmpty())
-//				log.info("'{}' - '{}' - '{}' for '{}'", view.getBeanName(), view.getViewName(),
-//						new UriTemplate(view.getViewName()).matches(viewAndParameters), viewAndParameters);
-//		}
 
 		// look for exact matches
 		for (ViewInfo view : views) {
