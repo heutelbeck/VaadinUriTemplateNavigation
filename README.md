@@ -70,8 +70,7 @@ public class ApplesApplication {
 Example usage of the navigator:
 ```
     [...]
-	navigationBar
-				.addComponent(createNavigationButton("Show one core of apple", CoreView.getViewName("d321", "c5762")));
+	navigationBar.addComponent(createNavigationButton("Show one core of apple", CoreView.getViewName("d321", "c5762")));
     [...]
     private Button createNavigationButton(String caption, final String viewName) {
 		Button button = new Button(caption);
