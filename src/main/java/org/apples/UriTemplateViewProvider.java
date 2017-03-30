@@ -46,6 +46,8 @@ public class UriTemplateViewProvider extends SpringViewProvider {
 	@Override
 	protected String getViewName(String viewAndParameters, List<ViewInfo> views) {
 
+		LOGGER.info("************************************************");
+
 		// look for exact matches
 		for (ViewInfo view : views) {
 			if (view.getViewName().equals(viewAndParameters)) {
@@ -89,6 +91,7 @@ public class UriTemplateViewProvider extends SpringViewProvider {
 
 	@Override
 	protected List<ViewInfo> getAllowedViewsForCurrentUI(String viewName) {
+
 		List<ViewInfo> views = new ArrayList<ViewInfo>();
 		Set<String> allViews = getViewNameToBeanNamesMap().get(viewName);
 		if (allViews == null) {

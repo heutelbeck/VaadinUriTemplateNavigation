@@ -13,12 +13,11 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-
-@SpringView(name = ApplesView.NAME)
-public class ApplesView extends VerticalLayout implements View {
+@SpringView(name = Apples.NAME)
+public class Apples extends VerticalLayout implements View {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger LOGGER = LoggerFactory.getLogger(ApplesView.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Apples.class);
 
 	public static final String NAME = "apples";
 	

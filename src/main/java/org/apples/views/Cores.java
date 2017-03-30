@@ -14,17 +14,15 @@ import org.springframework.web.util.UriTemplate;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.spring.annotation.SpringView;
-import com.vaadin.spring.navigator.SpringNavigator;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-@SpringView(name = CoresView.TEMPLATE)
-public class CoresView extends VerticalLayout implements View {
-	SpringNavigator nav;
+@SpringView(name = Cores.TEMPLATE)
+public class Cores extends VerticalLayout implements View {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger LOGGER = LoggerFactory.getLogger(AppleView.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Apple.class);
 
 	public static final String TEMPLATE = "apples/{appleId}/cores";
 	public static final UriTemplate URI_TEMPLATE = new UriTemplate(TEMPLATE);

@@ -1,9 +1,10 @@
 package org.apples;
 
-import org.apples.views.AppleView;
-import org.apples.views.ApplesView;
-import org.apples.views.CoreView;
-import org.apples.views.CoresView;
+import org.apples.mvpviews.House;
+import org.apples.views.Apple;
+import org.apples.views.Apples;
+import org.apples.views.Core;
+import org.apples.views.Cores;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
@@ -37,11 +38,12 @@ public class ApplesUI extends UI implements ViewDisplay {
 
 		final CssLayout navigationBar = new CssLayout();
 		navigationBar.addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
-		navigationBar.addComponent(createNavigationButton("List all apples", ApplesView.NAME));
-		navigationBar.addComponent(createNavigationButton("Show one apple", AppleView.getViewName("12345")));
-		navigationBar.addComponent(createNavigationButton("List cores of apple", CoresView.getViewName("9874")));
+		navigationBar.addComponent(createNavigationButton("List all apples", Apples.NAME));
+		navigationBar.addComponent(createNavigationButton("Show one apple", Apple.getViewName("12345")));
+		navigationBar.addComponent(createNavigationButton("List cores of apple", Cores.getViewName("9874")));
 		navigationBar
-				.addComponent(createNavigationButton("Show one core of apple", CoreView.getViewName("d321", "c5762")));
+				.addComponent(createNavigationButton("Show one core of apple", Core.getViewName("d321", "c5762")));
+		navigationBar.addComponent(createNavigationButton("House With MVP", House.getViewName("098765", "asf31d")));
 
 		root.addComponent(navigationBar);
 

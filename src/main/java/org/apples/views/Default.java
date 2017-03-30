@@ -8,8 +8,8 @@ import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
-@SpringView(name = DefaultView.VIEW_NAME)
-public class DefaultView extends VerticalLayout implements View {
+@SpringView(name = Default.VIEW_NAME)
+public class Default extends VerticalLayout implements View {
 
 	private static final long serialVersionUID = 1L;
 

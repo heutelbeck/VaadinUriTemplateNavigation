@@ -18,28 +18,33 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-@SpringView(name = AppleView.TEMPLATE)
-public class AppleView extends VerticalLayout implements View {
+@SpringView(name = Core.TEMPLATE)
+public class Core extends VerticalLayout implements View {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger LOGGER = LoggerFactory.getLogger(AppleView.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Core.class);
 
-	public static final String TEMPLATE = "apples/{appleId}";
+	public static final String TEMPLATE = "apples/{appleId}/cores/{coreId}";
 	public static final UriTemplate URI_TEMPLATE = new UriTemplate(TEMPLATE);
-	Label appleId = new Label();
 
-	public static String getViewName(String appleId) {
+	Label appleId = new Label();
+	Label coreId = new Label();
+
+	public static String getViewName(String appleId, String coreId) {
 		Map<String, String> vars = new HashMap<String, String>();
 		vars.put("appleId", appleId);
+		vars.put("coreId", coreId);
 		return URI_TEMPLATE.expand(vars).toString();
 	}
 
 	@PostConstruct
 	void init() {
-		addComponent(new Label("This views shows the apple with a specific identifier  Fragment: '"
+		addComponent(new Label("This views shows an individual core in a specific apple  Fragment: '"
 				+ UI.getCurrent().getPage().getUriFragment() + "'"));
 		addComponent(appleId);
 		appleId.setCaption("Apple ID:");
+		addComponent(coreId);
+		coreId.setCaption("Core ID:");
 	}
 
 	@Override
@@ -49,7 +54,7 @@ public class AppleView extends VerticalLayout implements View {
 			LOGGER.info("key = '{}' value='{}'", entry.getKey(), entry.getValue());
 		}
 		appleId.setValue(map.get("appleId"));
-
+		coreId.setValue(map.get("coreId"));
 		LOGGER.info("this: {}", this);
 	}
 

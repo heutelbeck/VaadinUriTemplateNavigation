@@ -26,11 +26,29 @@
 	</properties>
 
 	<dependencies>
+	
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-spring-boot-starter</artifactId>
 		</dependency>
+	
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-push</artifactId>
+		</dependency>
 
+		<dependency>
+			<groupId>org.vaadin.spring.extensions</groupId>
+			<artifactId>vaadin-spring-ext-boot</artifactId>
+			<version>2.0.0.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.vaadin.spring.addons</groupId>
+			<artifactId>vaadin-spring-addon-simple-mvp</artifactId>
+			<version>2.0.0.RELEASE</version>
+		</dependency>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

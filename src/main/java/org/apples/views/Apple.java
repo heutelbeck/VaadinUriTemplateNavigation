@@ -14,39 +14,32 @@ import org.springframework.web.util.UriTemplate;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.spring.annotation.SpringView;
-import com.vaadin.spring.navigator.SpringNavigator;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-@SpringView(name = CoreView.TEMPLATE)
-public class CoreView extends VerticalLayout implements View {
-	SpringNavigator nav;
+@SpringView(name = Apple.TEMPLATE)
+public class Apple extends VerticalLayout implements View {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger LOGGER = LoggerFactory.getLogger(CoreView.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Apple.class);
 
-	public static final String TEMPLATE = "apples/{appleId}/cores/{coreId}";
+	public static final String TEMPLATE = "apples/{appleId}";
 	public static final UriTemplate URI_TEMPLATE = new UriTemplate(TEMPLATE);
-
 	Label appleId = new Label();
-	Label coreId = new Label();
 
-	public static String getViewName(String appleId, String coreId) {
+	public static String getViewName(String appleId) {
 		Map<String, String> vars = new HashMap<String, String>();
 		vars.put("appleId", appleId);
-		vars.put("coreId", coreId);
 		return URI_TEMPLATE.expand(vars).toString();
 	}
 
 	@PostConstruct
 	void init() {
-		addComponent(new Label("This views shows an individual core in a specific apple  Fragment: '"
+		addComponent(new Label("This views shows the apple with a specific identifier  Fragment: '"
 				+ UI.getCurrent().getPage().getUriFragment() + "'"));
 		addComponent(appleId);
 		appleId.setCaption("Apple ID:");
-		addComponent(coreId);
-		coreId.setCaption("Core ID:");
 	}
 
 	@Override
@@ -56,7 +49,7 @@ public class CoreView extends VerticalLayout implements View {
 			LOGGER.info("key = '{}' value='{}'", entry.getKey(), entry.getValue());
 		}
 		appleId.setValue(map.get("appleId"));
-		coreId.setValue(map.get("coreId"));
+
 		LOGGER.info("this: {}", this);
 	}
 
