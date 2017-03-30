@@ -2,7 +2,7 @@
 
 $v-font-family: 'Roboto', sans-serif;
 
-$v-app-loading-text: "OpenConjurer";
+$v-app-loading-text: "Apples";
 
 $v-background-color: hsl(0, 0, 99.5%);
 // Left side menu background color
@@ -21,12 +21,12 @@ $v-error-indicator-color: hsl(349, 66%, 56%);
 $v-font-size--h1: 1.6em !default;
 @import "../valo/valo.scss";
 
-@mixin openconjurer {
+@mixin apples {
   @include valo;
 
   // Insert your own theme rules here
   
-  .openconjurer .valo-menu .valo-menu-title {
+  .apples .valo-menu .valo-menu-title {
   	background: $v-app-background-color;
   	color: $v-selection-color;
   	text-shadow: none;
@@ -41,15 +41,7 @@ $v-font-size--h1: 1.6em !default;
   	border: 1px dotted #474747;
   	opacity: 0.5;
   }
-  
-  .jsonedit {
-    font-family: monospace;
-  } 
-  
-  .policyeditor {
-    font-family: monospace;
-  }
-  
+ 
   .v-caption-redicon .v-icon {
     color: red;
     font-size: 20px;

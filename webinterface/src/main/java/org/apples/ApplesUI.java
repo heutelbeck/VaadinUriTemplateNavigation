@@ -1,9 +1,9 @@
-package org.openconjurer;
+package org.apples;
 
-import org.openconjurer.views.AppleView;
-import org.openconjurer.views.ApplesView;
-import org.openconjurer.views.CoreView;
-import org.openconjurer.views.CoresView;
+import org.apples.views.AppleView;
+import org.apples.views.ApplesView;
+import org.apples.views.CoreView;
+import org.apples.views.CoresView;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @SpringUI
 @Theme("openconjurer")
 @SpringViewDisplay
-public class OpenConjurerUI extends UI implements ViewDisplay {
+public class ApplesUI extends UI implements ViewDisplay {
 
 	private static final long serialVersionUID = 1L;
 

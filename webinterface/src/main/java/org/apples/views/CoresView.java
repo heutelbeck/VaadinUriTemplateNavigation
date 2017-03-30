@@ -1,4 +1,4 @@
-package org.openconjurer.views;
+package org.apples.views;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +13,7 @@ import org.springframework.web.util.UriTemplate;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.spring.navigator.SpringNavigator;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -20,12 +21,13 @@ import com.vaadin.ui.VerticalLayout;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@SpringView(name = AppleView.TEMPLATE)
-public class AppleView extends VerticalLayout implements View {
-
+@SpringView(name = CoresView.TEMPLATE)
+public class CoresView extends VerticalLayout implements View {
+	SpringNavigator nav;
+	
 	private static final long serialVersionUID = 1L;
-
-	public static final String TEMPLATE = "apples/{appleId}";
+	
+	public static final String TEMPLATE = "apples/{appleId}/cores";
 	public static final UriTemplate URI_TEMPLATE = new UriTemplate(TEMPLATE);
 	Label appleId = new Label();
 
@@ -35,13 +37,13 @@ public class AppleView extends VerticalLayout implements View {
 		return URI_TEMPLATE.expand(vars).toString();
 	}
 
-	@PostConstruct
-	void init() {
-		addComponent(new Label("This views shows the apple with a specific identifier  Fragment: '"
-				+ UI.getCurrent().getPage().getUriFragment() + "'"));
+    @PostConstruct
+    void init() {
+        addComponent(new Label("This view list all cores of the apple with the given ID  Fragment: '"+UI.getCurrent().getPage().getUriFragment()+"'"));
 		addComponent(appleId);
 		appleId.setCaption("Apple ID:");
-	}
+
+    }
 
 	@Override
 	public void enter(ViewChangeEvent event) {
@@ -54,9 +56,9 @@ public class AppleView extends VerticalLayout implements View {
 
 		log.info("this: {}", this);
 	}
-
+	
 	@PreDestroy
 	public void destory() {
-		log.info("I die {}", this);
+		log.info("I die {}",this);
 	}
 }

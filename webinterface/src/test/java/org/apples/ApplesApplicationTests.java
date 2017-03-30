@@ -1,4 +1,4 @@
-package org.openconjurer;
+package org.apples;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class WebinterfaceApplicationTests {
+public class ApplesApplicationTests {
 
 	@Test
 	public void contextLoads() {

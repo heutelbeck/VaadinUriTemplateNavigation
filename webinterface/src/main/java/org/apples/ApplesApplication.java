@@ -1,4 +1,4 @@
-package org.openconjurer;
+package org.apples;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -11,15 +11,13 @@ import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.spring.navigator.SpringViewProvider;
 
 @SpringBootApplication
-public class WebinterfaceApplication {
+public class ApplesApplication {
 
 	@Autowired
 	private ApplicationContext applicationContext;
-//	@Autowired
-//	private BeanDefinitionRegistry beanDefinitionRegistry;
 
 	public static void main(String[] args) {
-		SpringApplication.run(WebinterfaceApplication.class, args);
+		SpringApplication.run(ApplesApplication.class, args);
 	}
 
 	@Bean

@@ -1,4 +1,4 @@
-package org.openconjurer.views;
+package org.apples.views;
 
 import java.util.HashMap;
 import java.util.Map;
