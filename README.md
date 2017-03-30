@@ -1,6 +1,6 @@
-== URI Templates Navigation in Vaadin 8 + Spring Boot
+# URI Templates Navigation in Vaadin 8 + Spring Boot
 
-View code example:
+## View code example:
 
 ```
 @SpringView(name = CoreView.TEMPLATE)
@@ -46,7 +46,7 @@ public class CoreView extends VerticalLayout implements View {
 
 ```
 
-Configuration:
+## Configuration:
 ```
 @SpringBootApplication
 public class ApplesApplication {
@@ -67,7 +67,7 @@ public class ApplesApplication {
 }
 ```
 
-Example usage of the navigator:
+## Example usage of the navigator:
 ```
     [...]
 	navigationBar.addComponent(createNavigationButton("Show one core of apple", CoreView.getViewName("d321", "c5762")));
