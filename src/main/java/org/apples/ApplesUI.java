@@ -4,8 +4,6 @@ import org.apples.views.AppleView;
 import org.apples.views.ApplesView;
 import org.apples.views.CoreView;
 import org.apples.views.CoresView;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
@@ -27,7 +25,6 @@ import com.vaadin.ui.themes.ValoTheme;
 public class ApplesUI extends UI implements ViewDisplay {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger LOGGER = LoggerFactory.getLogger(ApplesUI.class);
 
 	private Panel springViewDisplay;
 
@@ -56,7 +53,6 @@ public class ApplesUI extends UI implements ViewDisplay {
 	}
 
 	private Button createNavigationButton(String caption, final String viewName) {
-		LOGGER.info("{} -> {}", caption, viewName);
 		Button button = new Button(caption);
 		button.addStyleName(ValoTheme.BUTTON_SMALL);
 		button.addClickListener(event -> getUI().getNavigator().navigateTo(viewName));
