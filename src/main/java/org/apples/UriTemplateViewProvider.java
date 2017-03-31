@@ -1,5 +1,6 @@
 package org.apples;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -15,7 +16,7 @@ import org.springframework.web.util.UriTemplate;
 
 import com.vaadin.spring.navigator.SpringViewProvider;
 
-public class UriTemplateViewProvider extends SpringViewProvider {
+public class UriTemplateViewProvider extends SpringViewProvider implements Serializable {
 
 	private static final long serialVersionUID = -2310440004073323751L;
 	private static final Logger LOGGER = LoggerFactory.getLogger(UriTemplateViewProvider.class);
@@ -73,7 +74,7 @@ public class UriTemplateViewProvider extends SpringViewProvider {
 		}
 
 		// then look for prefix matches
-		int lastSlash = -1;
+		int lastSlash;
 		String viewPart = viewAndParameters;
 		while ((lastSlash = viewPart.lastIndexOf('/')) > -1) {
 			viewPart = viewPart.substring(0, lastSlash);
